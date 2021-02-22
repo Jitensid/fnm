@@ -56,12 +56,12 @@ class WGAN_GP(object):
     # Decoder front face from vgg feature
     self.gen_p = self.decoder(self.feature_p)
     self.gen_f = self.decoder(self.feature_f, reuse=True)
-    print 'Generator output shape:', self.gen_p.get_shape()
+    print('Generator output shape:', self.gen_p.get_shape())
     
     # Map texture into features again by VGG  
     self.feature_gen_p = self.face_model.forward(self.gen_p,'profile_gen_enc')
     self.feature_gen_f = self.face_model.forward(self.gen_f, 'front_gen_enc')
-    print 'Feature of Generated Image shape:', self.feature_gen_p[-1].get_shape()
+    print('Feature of Generated Image shape:', self.feature_gen_p[-1].get_shape())
     
     # Construct discriminator between generalized front face and ground truth
     self.dr = self.discriminator(front)
