@@ -51,7 +51,7 @@ class WGAN_GP(object):
     # Use pretrained model(vgg-face) as encoder of Generator
     self.feature_p = self.face_model.forward(profile,'profile_enc')
     self.feature_f = self.face_model.forward(front, 'front_enc')
-    print 'Face model output feature shape:', self.feature_p[-1].get_shape()
+    print('Face model output feature shape:', self.feature_p[-1].get_shape())
     
     # Decoder front face from vgg feature
     self.gen_p = self.decoder(self.feature_p)
